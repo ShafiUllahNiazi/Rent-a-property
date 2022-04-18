@@ -8,5 +8,6 @@ urlpatterns = [
     path('apartment/<int:pk>', AppartmentView.ApartmrntDetailedView.as_view(), name='ApartmrntDetailedView'),
     path('contact', ContactUsView.ContactUsView.as_view(), name='ContactUsView'),
     path('contact/<int:pk>', ContactUsView.ContactUsDetailedView.as_view(), name='ContactUsDetailedView'),
+    path('/', ContactUsView.ContactUsDetailedView.as_view(), name='ContactUsDetailedView'),
 
 ]
