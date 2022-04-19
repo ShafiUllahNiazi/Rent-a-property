@@ -12,7 +12,8 @@ class Apartment(models.Model):
     address = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     price = models.CharField(max_length=200, null=True, blank=True)
-
+    Latitude=models.CharField(max_length=200, null=True, blank=True)
+    Longitude=models.CharField(max_length=200, null=True, blank=True)
 
 class ApartmentImages(models.Model):
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name="apartment_images")
