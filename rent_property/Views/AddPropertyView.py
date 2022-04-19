@@ -2,9 +2,9 @@ from rest_framework.views import APIView
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 
-class HomeView(APIView):
+class AddPropertyView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = '../templates/index.html'
+    template_name = '../templates/add_property.html'
 
     def get(self, request):
         # queryset = Profile.objects.all()
