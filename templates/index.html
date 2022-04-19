@@ -1,3 +1,8 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_prop.css' %}">
+<script src="{% static 'static/javascript/app.js' %}"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,12 +35,12 @@
             <a href="rent_property.html">Rent</a>
             <a href="projects.html">Projects</a>
             
-            <a href="contact.html">Contact</a>
+            <a href="/app/contact">Contact</a>
             </span>
             
         </div>
         <div class="navbar-right-section"> 
-            <a href="add_property.html">
+            <a href="/app/addproperty">
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 22.608 22.6">
                 <defs>
                     <style>
@@ -91,11 +96,11 @@
     <!-- Sidebar will showed us when screen size will be 880 -->
     <div class="sidebar">
         <a href="disable" disabled></a>
-        <a href="add_property.html">Add Property</a>
+        <a href="/app/addproperty">Add Property</a>
         <a href="buy_property.html">Buy</a>
         <a href="rent_property.html">Rent</a>
         <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="/app/contact">Contact</a>
         <a href="signup.html"  class="signup">Sign Up</a>
         <a href="#popup1" class="login">Log In</a>
     </div>
@@ -993,7 +998,7 @@
                 <ul class="box">
                     <li class="link_name">Company</li>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="/app/contact">Contact us</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Get started</a></li>
                 </ul>
