@@ -1,3 +1,8 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_prop.css' %}">
+<script src="{% static 'static/javascript/app.js' %}"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +116,7 @@
 
 <div class="add_property">
     
-    <form class="complete_form" action="#" method="post">
+    <form class="complete_form" action="/app/addpropertydata" method="post">
         
     <h2 class="headtext">Add Property</h2> <br>
         <div class="user_demand_margin">
@@ -124,7 +129,7 @@
     </div>
     <div class="p_title"> 
         <label for="ice-cream-choice">Select Property type:</label>
-        <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+        <input list="ice-cream-flavors" id="apartment_type" name="apartment_type" />
         
         <datalist id="ice-cream-flavors">
             <option value="Home">
@@ -135,22 +140,22 @@
     </div>
         <div class="p_title">
             <label for="#">Add Title</label>
-            <input type="text" placeholder="10 Marla Luxury Home " name="home_name" id="">
+            <input type="text" placeholder="10 Marla Luxury Home " name="title" id="title">
         </div>
         <div class="p_description">
             <label for="#">Description</label>
-            <textarea name="desc" placeholder="Enter About Property 50-400 words" id="" cols="30" rows="10"></textarea>
+            <textarea name="description" placeholder="Enter About Property 50-400 words" id="description" cols="30" rows="10"></textarea>
         </div>
         <div class="p_furnished">
             <label for="#">Furnished</label>
-            <select name="" id="">
+            <select name="property_status" id="property_status">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
         </div>
         <div class="p_bedrooms">
             <label for="#">Bedrooms</label>
-            <select name="#" id="">
+            <select name="no_of_rooms" id="no_of_rooms">
                 <option value="1">1</option>
                 <option value="1">2</option>
                 <option value="1">3</option>
@@ -161,7 +166,7 @@
         </div>
         <div class="p_bathrooms">
             <label for="#">Bathrooms</label>
-            <select name="#" id="">
+            <select name="no_of_washrooms" id="no_of_washrooms">
                 <option value="1">1</option>
                 <option value="1">2</option>
                 <option value="1">3</option>
@@ -184,7 +189,7 @@
     
         <div class="p_area_unit">
             <label for="#">Area Unit</label>
-            <select name="#" id="">
+            <select name="area" id="area">
                 <option value="#">Kanal</option>
                 <option value="#">Marla</option>
                 <option value="#">Square Feet</option>
@@ -196,12 +201,22 @@
     
         <div class="p_area">
             <label for="#">Area</label>
-            <input type="number" placeholder="10" name="area" id="">
+            <input type="number" placeholder="10" name="address" id="address">
+    
+        </div>
+        <div class="p_area">
+            <label for="#">Longitude</label>
+            <input type="number" placeholder="10" name="longitude" id="longitude">
+    
+        </div>
+        <div class="p_area">
+            <label for="#">Latitude</label>
+            <input type="number" placeholder="10" name="Latitude" id="Latitude">
     
         </div>
         <div class="p_price">
             <label for="#">Set Price</label>
-            <input type="number" placeholder="1.2 Crore" name="" id="">
+            <input type="number" placeholder="1.2 Crore" name="price" id="price">
     
         </div>
         <div style="display: block;font-size: 16px;font-weight: bolder;margin: 20px;" class="or">
@@ -209,7 +224,7 @@
         </div>
         <div class="p_price">
             <label for="#">Set Rent Per Month</label>
-            <input type="number" placeholder="29 Thousand" name="" id="">
+            <input type="number" placeholder="29 Thousand" name="price" id="price">
         
         </div>
     
@@ -382,7 +397,7 @@
             <h2>Sign In</h2>
             <i class="fa fa-times tim"></i>
         </div>
-        <form action="#" class="popup-body">
+        <form action="" class="popup-body">
             <h2>Welcome to Kashif.com</h2>
             <input type="text" placeholder="Email Adress or Phone" name="" id="">
             <input type="text" placeholder="Password" name="" id="">

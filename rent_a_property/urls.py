@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('app/', include('rent_property.urls')),
     path('', include('rent_property.urls')),
 
 ]

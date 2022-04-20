@@ -1,3 +1,8 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_prop.css' %}">
+<script src="{% static 'static/javascript/app.js' %}"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {% load static %}
-    <link rel="stylesheet" href= "{% static './css/style.css' %}" />
+    <link rel="stylesheet" href="./css/style.css"> 
     <!-- Title -->
     <title>Landlord | Sell, Buy, and Rent Property </title>
 </head>
@@ -32,12 +35,12 @@
             <a href="rent_property.html">Rent</a>
             <a href="projects.html">Projects</a>
             
-            <a href="contact.html">Contact</a>
+            <a href="/app/contact">Contact</a>
             </span>
             
         </div>
         <div class="navbar-right-section"> 
-            <a href="add_property_view">
+            <a href="/app/addproperty">
                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 22.608 22.6">
                 <defs>
                     <style>
@@ -93,11 +96,11 @@
     <!-- Sidebar will showed us when screen size will be 880 -->
     <div class="sidebar">
         <a href="disable" disabled></a>
-        <a href="add_property.html">Add Property</a>
+        <a href="/app/addproperty">Add Property</a>
         <a href="buy_property.html">Buy</a>
         <a href="rent_property.html">Rent</a>
         <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="/app/contact">Contact</a>
         <a href="signup.html"  class="signup">Sign Up</a>
         <a href="#popup1" class="login">Log In</a>
     </div>
@@ -995,7 +998,7 @@
                 <ul class="box">
                     <li class="link_name">Company</li>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="/app/contact">Contact us</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Get started</a></li>
                 </ul>
@@ -1101,8 +1104,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- External Javascript -->
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-{% load static %}
-<script src="{% static './javascript/app.js'"> </script>
-
+<script src="./javascript/app.js"></script>
+ 
 </body>
 </html>
