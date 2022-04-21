@@ -28,7 +28,6 @@ class contact (APIView):
         
         return Response({'profiles': 'abc'})
 class add_property_data (APIView):
-    print ('1111111111111111111111')
     renderer_classes = [TemplateHTMLRenderer]
     template_name = '../templates/add_property.html'
 

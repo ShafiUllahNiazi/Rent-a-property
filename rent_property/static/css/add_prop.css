@@ -370,6 +370,7 @@ input[type="file"] {
 #radio {
   display: flex;
   gap: 5px;
+
 }
 #radio label {
   padding: 10px 30px;

@@ -1,4 +1,3 @@
-
 from rent_property.models import Apartment
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
 from rest_framework.views import APIView
@@ -6,6 +5,7 @@ from rest_framework.views import status
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
 from rent_a_property.pagination import StandardResultSetPagination
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 class ApartmentListView(ListAPIView):
@@ -22,14 +22,23 @@ class ApartmentListView(ListAPIView):
 
         return queryset
 
+import pdb
+
 
 class ApartmentView(APIView):
+
     def post(self, request):
+        images = []
+        for image in request.FILES:
+            images.append(request.FILES[image].name)
+        pdb.set_trace()
         serializer = ApartmentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=422)
+
+
 
 
 class ApartmrntDetailedView(APIView):
