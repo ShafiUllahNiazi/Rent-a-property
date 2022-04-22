@@ -1,3 +1,5 @@
+import pdb
+
 from rent_property.models import Apartment
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
 from rest_framework.views import APIView
@@ -22,8 +24,6 @@ class ApartmentListView(ListAPIView):
 
         return queryset
 
-import pdb
-
 
 class ApartmentView(APIView):
 
@@ -39,9 +39,7 @@ class ApartmentView(APIView):
         return Response(serializer.errors, status=422)
 
 
-
-
-class ApartmrntDetailedView(APIView):
+class ApartmentDetailedView(APIView):
     def get(self, request, pk):
         try:
             apartment_info = Apartment.objects.get(id=pk)
