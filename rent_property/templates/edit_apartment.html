@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
+    <!-- Sidebar -->ewt
 
     <div class="navbar">
         <div class="navbar-margin">
@@ -129,49 +129,28 @@
     </div>
     <div class="p_title">
         <label for="ice-cream-choice">Select Property type:</label>
-        <input list="ice-cream-flavors" id="apartment_type" name="apartment_type" />
+        <input type="text" value="{{ data.apartment_type }}" id="apartment_type" name="apartment_type" />
 
-        <datalist id="ice-cream-flavors">
-            <option value="Home">
-            <option value="Hostel">
-            <option value="Shop">
-            <option value="Building">
-        </datalist>
     </div>
         <div class="p_title">
             <label for="#">Add Title</label>
-            <input type="text" placeholder="10 Marla Luxury Home " name="title" id="title">
+            <input type="text" value="{{ data.title }}" placeholder="10 Marla Luxury Home " name="title" id="title">
         </div>
         <div class="p_description">
             <label for="#">Description</label>
-            <textarea name="description" placeholder="Enter About Property 50-400 words" id="description" cols="30" rows="10"></textarea>
+            <input type="text" name="description" value="{{ data.description }}" placeholder="Enter About Property 50-400 words" id="description" cols="30" rows="10"></textarea>
         </div>
         <div class="p_furnished">
             <label for="#">Furnished</label>
-            <select name="property_status" id="property_status">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+            <input type="text" name="property_status" value="{{ data.property_status }}" id="property_status"/>
         </div>
         <div class="p_bedrooms">
             <label for="#">Bedrooms</label>
-            <select name="no_of_rooms" id="no_of_rooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6+</option>
-            </select>
+            <input type="text" name="no_of_rooms" value="{{ data.no_of_rooms }}" id="no_of_rooms"/>
         </div>
         <div class="p_bathrooms">
             <label for="#">Bathrooms</label>
-            <select name="no_of_washrooms" id="no_of_washrooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4+</option>
-            </select>
+            <input type="text" name="no_of_washrooms" value="{{ data.no_of_washrooms }}" id="no_of_washrooms">
         </div>
         <label for="#">Features</label>
         <div class="p_features">
@@ -189,34 +168,31 @@
 
         <div class="p_area_unit">
             <label for="#">Area Unit</label>
-            <select name="area_unit" id="area_unit_id">
-                <option value="kanal">Kanal</option>
-                <option value="marla">Marla</option>
-                <option value="square feet">Square Feet</option>
-                <option value="square meter">Square Meter</option>
-                <option value="square yards">Square Yards</option>
-            </select>
+            <input type="text" name="area_unit" value="{{ data.area_unit }}" id="area_unit_id"/>
         </div>
 
 
         <div class="p_area">
             <label for="#">Area</label>
-            <input type="text" placeholder="10" name="area" id="area_id">
+            <input type="text" value="{{ data.area }}" placeholder="10" name="area" id="area_id">
 
         </div>
         <div class="p_area">
             <label for="#">Longitude</label>
-            <input type="text" placeholder="10" name="longitude" id="Longitude">
+            <input type="text" placeholder="10" name="longitude" value="{{ data.longitude }}" id="Longitude">
 
         </div>
         <div class="p_area">
             <label for="#">Latitude</label>
-            <input type="text" placeholder="10" name="latitude" id="Latitude">
+            <input type="text" placeholder="10" name="latitude" value="{{ data.latitude }}" id="Latitude">
 
         </div>
         <div class="p_price">
             <label for="#">Price</label>
-            <input type="text" placeholder="1.2 Crore" name="price" id="price">
+            <input type="text" placeholder="1.2 Crore" name="price" value="{{ data.price }}" id="price">
+
+        </div>
+
 
 
     <label for="#">Upload Upto 10 Photos</label><br>
@@ -269,29 +245,19 @@
         <div class="p_state">
             <label for="#">Confirm Location</label>
             <label for="#">Select State/Province</label>
-            <select name="state" id="state_id">
-                <option value="punjab">Punjab</option>
-                <option value="sindh">Sindh</option>
-                <option value="balochistan">Balochistan</option>
-                <option value="khyber">Khyber</option>
-                <option value="kashmir">Kashmir</option>
-                <option value="gilgit">Gilgit</option>
-            </select>
+            <input type="text" name="state" value="{{ data.state }}" id="state_id"/>
         </div>
         <div class="p_city">
             <label for="#">Select City</label>
-            <select name="city" id="city_id">
-                <option value="lahore">Lahore</option>
-                <option value="karachi">Karachi</option>
-                <option value="multan">Multan</option>
-                <option value="islamabad">Islamabad</option>
-            </select>
+            <input type="text" name="city" value="{{ data.city }}" id="city_id"/>
+
+
         </div>
         <div class="p_street_adress">
             <label for="#">Street Adress</label>
-            <input type="text" placeholder="H#15a2, Johar Town" name="street_address" id="street_address_id">
+            <input type="text" placeholder="H#15a2, Johar Town" name="street_address" value="{{ data.street_address }}" id="street_address_id">
         </div>
-        <button class="submit" type="submit">Post Now</button>
+        <button class="submit" type="submit">Update Now</button>
     </form>
 </div>
 

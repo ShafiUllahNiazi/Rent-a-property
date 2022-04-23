@@ -13,7 +13,9 @@ urlpatterns = [
     path('app/addproperty', viewapi.add_property.as_view(), name='addproperty'),
     path('app/addcontact', viewapi.contact.as_view(), name='contact'),
     path('app/addpropertydata', viewapi.add_property_data.as_view(), name='contact'),
-    
+    path('app/show_apartments', viewapi.show_apartments.as_view(), name='show_apartments'),
+    path('app/edit_apartment/<int:pk>', viewapi.edit_apartment.as_view(), name='edit_apartment'),
+
     
     
     
