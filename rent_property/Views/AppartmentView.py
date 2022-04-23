@@ -1,3 +1,8 @@
+import os
+from datetime import datetime
+
+from django.core.files.storage import FileSystemStorage
+
 from rent_property.models import Apartment
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
 from rest_framework.views import APIView
@@ -22,23 +27,31 @@ class ApartmentListView(ListAPIView):
 
         return queryset
 
+
 import pdb
+import shutil
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 
 class ApartmentView(APIView):
 
     def post(self, request):
-        images = []
+        apartment_images = []
         for image in request.FILES:
-            images.append(request.FILES[image].name)
-        pdb.set_trace()
+            file = request.FILES[image]
+            ext = request.FILES[image].name.split('.')[-1]
+            new_file_name = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + '.' + ext
+            path = default_storage.save(r'{}/{}'.format('images', new_file_name), ContentFile(file.read()))
+            apartment_images.append(new_file_name)
+
+        request.data.update({"apartment_images": apartment_images})
+
         serializer = ApartmentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=422)
-
-
 
 
 class ApartmrntDetailedView(APIView):
@@ -77,4 +90,4 @@ class ApartmrntDetailedView(APIView):
         else:
             return Response({"detail": "Apartment ID not found in request"}, status=422)
 
-        return Response({"detail": "Deleted Job Successfully!"}, status=200)
+        return Response({"detail": "Deleted Apartment Successfully!"}, status=200)

@@ -10,6 +10,7 @@ class ContactUsSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data = self.initial_data
+        # validated_data.pop('submit')
         instance = ContactUs.objects.create(**validated_data)
         return instance
 

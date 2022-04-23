@@ -37,7 +37,7 @@
                     <a href="rent_property.html">Rent</a>
                     <a href="projects.html">Projects</a>
 
-                    <a href="contact.html">Contact</a>
+                    <a href="app/contact">Contact</a>
                 </span>
             </div>
             <div class="navbar-right-section">
@@ -99,7 +99,7 @@
     <a href="buy_property.html">Buy</a>
     <a href="rent_property.html">Rent</a>
     <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+    <a href="app/contact">Contact</a>
     <a class="signup" href="signup.html">Sign Up</a>
     <a class="login" href="#popup1">Log In</a>
 </div>
@@ -115,9 +115,9 @@
 
 
 <div class="add_property">
-    
+
     <form class="complete_form" action="/apartment" method="post" enctype="multipart/form-data" >
-        
+
     <h2 class="headtext">Add Property</h2> <br>
         <div class="user_demand_margin">
             <h2>I want to _____ Property</h2>
@@ -125,12 +125,12 @@
                 <label style="height:40px" class="not-active active" for="#">Sell</label>
                 <label style="height:40px" class="not-active" for="#">Rent</label>
             </div>
-      
+
     </div>
-    <div class="p_title"> 
+    <div class="p_title">
         <label for="ice-cream-choice">Select Property type:</label>
         <input list="ice-cream-flavors" id="apartment_type" name="apartment_type" />
-        
+
         <datalist id="ice-cream-flavors">
             <option value="Home">
             <option value="Hostel">
@@ -157,25 +157,25 @@
             <label for="#">Bedrooms</label>
             <select name="no_of_rooms" id="no_of_rooms">
                 <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-                <option value="1">4</option>
-                <option value="1">5</option>
-                <option value="1">6+</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6+</option>
             </select>
         </div>
         <div class="p_bathrooms">
             <label for="#">Bathrooms</label>
             <select name="no_of_washrooms" id="no_of_washrooms">
                 <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-                <option value="1">4+</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
             </select>
         </div>
         <label for="#">Features</label>
         <div class="p_features">
-            
+
             <label>Drawing Room</label>
             <label>Prayer Room</label>
             <label>Laundry Room</label>
@@ -186,51 +186,51 @@
             <label>Launge</label>
             <label>Servent Quarters</label>
         </div>
-    
+
         <div class="p_area_unit">
             <label for="#">Area Unit</label>
-            <select name="area" id="area">
-                <option value="#">Kanal</option>
-                <option value="#">Marla</option>
-                <option value="#">Square Feet</option>
-                <option value="#">Square Meter</option>
-                <option value="#">Square Yards</option>
+            <select name="area_unit" id="area_unit_id">
+                <option value="kanal">Kanal</option>
+                <option value="marla">Marla</option>
+                <option value="square feet">Square Feet</option>
+                <option value="square meter">Square Meter</option>
+                <option value="square yards">Square Yards</option>
             </select>
         </div>
-    
-    
+
+
         <div class="p_area">
             <label for="#">Area</label>
-            <input type="number" placeholder="10" name="address" id="address">
-    
+            <input type="text" placeholder="10" name="area" id="area_id">
+
         </div>
         <div class="p_area">
             <label for="#">Longitude</label>
-            <input type="number" placeholder="10" name="longitude" id="longitude">
-    
+            <input type="text" placeholder="10" name="longitude" id="Longitude">
+
         </div>
         <div class="p_area">
             <label for="#">Latitude</label>
-            <input type="number" placeholder="10" name="Latitude" id="Latitude">
-    
+            <input type="text" placeholder="10" name="latitude" id="Latitude">
+
         </div>
         <div class="p_price">
             <label for="#">Set Price</label>
-            <input type="number" placeholder="1.2 Crore" name="price" id="price">
-    
+            <input type="text" placeholder="1.2 Crore" name="price" id="price">
+
         </div>
         <div style="display: block;font-size: 16px;font-weight: bolder;margin: 20px;" class="or">
             or
         </div>
         <div class="p_price">
             <label for="#">Set Rent Per Month</label>
-            <input type="number" placeholder="29 Thousand" name="price" id="price">
-        
+            <input type="text" placeholder="29 Thousand" name="price" id="price">
+
         </div>
-    
+
     <label for="#">Upload Upto 10 Photos</label><br>
         <div class="p_photos">
-            
+
             <label class="custom-file-upload">
                 <input type="file" name="image1"/>
                 <i class="fa fa-camera"></i>
@@ -272,36 +272,33 @@
                 <i class="fa fa-camera"></i>
             </label>
         </div>
-    
-    
-    
+
+
+
         <div class="p_state">
             <label for="#">Confirm Location</label>
             <label for="#">Select State/Province</label>
-            <select name="#" id="">
-                <option value="#">Punjab</option>
-                <option value="#">Sindh</option>
-                <option value="#">Baluchistan</option>
-                <option value="#">Khyber</option>
-                <option value="#">Kashmir</option>
-                <option value="#">Gilgit</option>
+            <select name="state" id="state_id">
+                <option value="punjab">Punjab</option>
+                <option value="sindh">Sindh</option>
+                <option value="balochistan">Balochistan</option>
+                <option value="khyber">Khyber</option>
+                <option value="kashmir">Kashmir</option>
+                <option value="gilgit">Gilgit</option>
             </select>
         </div>
         <div class="p_city">
             <label for="#">Select City</label>
-            <select name="#" id="">
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
-                <option value="#">Lahore</option>
+            <select name="city" id="city_id">
+                <option value="lahore">Lahore</option>
+                <option value="karachi">Karachi</option>
+                <option value="multan">Multan</option>
+                <option value="islamabad">Islamabad</option>
             </select>
         </div>
         <div class="p_street_adress">
             <label for="#">Street Adress</label>
-            <input type="text" placeholder="H#15a2, Johar Town" name="" id="">
+            <input type="text" placeholder="H#15a2, Johar Town" name="street_address" id="street_address_id">
         </div>
         <button class="submit" type="submit">Post Now</button>
     </form>
@@ -345,7 +342,7 @@
             <ul class="box">
                 <li class="link_name">Company</li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="app/contact">Contact us</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Get started</a></li>
             </ul>
@@ -390,7 +387,7 @@
 </footer>
 
 
-    
+
 
     <div class="pop-up-form">
         <div class="popup-head">

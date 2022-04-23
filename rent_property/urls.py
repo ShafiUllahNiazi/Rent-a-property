@@ -11,7 +11,7 @@ urlpatterns = [
    ## path('/', ContactUsView.ContactUsDetailedView.as_view(), name='ContactUsDetailedView'),
     path('', viewapi.Home_page_view.as_view(), name='home'),
     path('app/addproperty', viewapi.add_property.as_view(), name='addproperty'),
-    path('app/contact', viewapi.contact.as_view(), name='contact'),
+    path('app/addcontact', viewapi.contact.as_view(), name='contact'),
     path('app/addpropertydata', viewapi.add_property_data.as_view(), name='contact'),
     
     

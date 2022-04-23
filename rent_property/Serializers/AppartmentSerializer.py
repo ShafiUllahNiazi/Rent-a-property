@@ -17,13 +17,16 @@ class ApartmentSerializer(serializers.ModelSerializer):
         serializer = ApartmentImagesSerializer(apartment_images_data, many=True, context=serializer_context)
         return serializer.data
 
-    def create(self, validate_data):
+    def create(self, validated_data):
         validated_data = self.initial_data
         apartment_images = validated_data.pop('apartment_images')
-        apartment = Apartment.objects.create(**validated_data)
+        for i in range(10):
+            validated_data.pop('image' + str(i + 1))
 
+        apartment = Apartment.objects.create(**validated_data)
+        apartment_images = apartment_images[0]
         for item in apartment_images:
-            ApartmentImages.objects.create(apartment=apartment, **item)
+            ApartmentImages.objects.create(apartment=apartment, pictures=item)
 
         return apartment
 
