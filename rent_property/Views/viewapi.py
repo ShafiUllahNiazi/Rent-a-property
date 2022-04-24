@@ -11,7 +11,13 @@ class Home_page_view(APIView):
     template_name = '../templates/index.html'
 
     def get(self, request):
-        return Response({'profiles': 'abc'})
+        try:
+            info_set = Apartment.objects.all()[:6]
+            serializer = ApartmentSerializer(info_set, many=True)
+
+            return Response({'data': serializer.data}, status=200)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=422)
 
 
 class add_property(APIView):

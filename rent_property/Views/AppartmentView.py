@@ -37,17 +37,20 @@ from django.core.files.base import ContentFile
 class ApartmentView(APIView):
 
     def post(self, request):
+        data = request.data
+        data = data.dict()
         apartment_images = []
         for image in request.FILES:
             file = request.FILES[image]
             ext = request.FILES[image].name.split('.')[-1]
             new_file_name = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + '.' + ext
             path = default_storage.save(r'{}/{}'.format('images', new_file_name), ContentFile(file.read()))
-            apartment_images.append(new_file_name)
+            apartment_images.append(r'{}/{}'.format('images', new_file_name))
 
-        request.data.update({"apartment_images": apartment_images})
-
-        serializer = ApartmentSerializer(data=request.data)
+        data.update({"apartment_images": apartment_images})
+        # pdb.set_trace()
+        # data = {k: v[0] for k, v in dict(data).items()}
+        serializer = ApartmentSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=200)
@@ -71,6 +74,7 @@ class ApartmrntDetailedView(APIView):
             return Response({"detail": "Id not found in data!"}, status=422)
 
         request_data = request.data
+        request_data = request_data.dict()
         serializer = ApartmentSerializer(apartment_info, data=request_data)
 
         if serializer.is_valid():

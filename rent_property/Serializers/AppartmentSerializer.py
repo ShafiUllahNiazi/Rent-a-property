@@ -1,3 +1,4 @@
+import pdb
 
 from rest_framework import serializers
 from rent_property.models import Apartment, ApartmentImages
@@ -22,9 +23,9 @@ class ApartmentSerializer(serializers.ModelSerializer):
         apartment_images = validated_data.pop('apartment_images')
         for i in range(10):
             validated_data.pop('image' + str(i + 1))
-
         apartment = Apartment.objects.create(**validated_data)
-        apartment_images = apartment_images[0]
+        # pdb.set_trace()
+        # apartment_images = apartment_images[0]
         for item in apartment_images:
             ApartmentImages.objects.create(apartment=apartment, pictures=item)
 
