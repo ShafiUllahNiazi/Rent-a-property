@@ -51,9 +51,41 @@
 
     {% for item in data %}
         <tr>
+
             {% for key, value in item.items %}
+
+
+
+            {% comment %} <script>
                 {% if key == 'id' %}
+
+                    var id1={{ value }}
+                    console.log(id1)
+                    console.log("absccscgs")
+
+                    {% endif %}
+                </script> {% endcomment %}
+
+                {% if key == 'id' %}
+
                     {% firstof value as id %}
+                    <script>
+                        window.localStorage.setItem('id',{{value}});
+
+                        console.log('token found')
+                        var x = localStorage.getItem('id');
+                        console.log(x)
+                        localStorage.removeItem('id');
+
+                        {% comment %} var url = "app/edit_apartment/" + encodeURIComponent(x); {% endcomment %}
+
+
+                        {% comment %} document.getElementById("myedit").href = url; {% endcomment %}
+                        if(window.localStorage.getItem('id')){ console.log('token found') }
+
+                    </script>
+
+
 
 
                 {% endif %}
@@ -69,13 +101,29 @@
 
 
 
+
             {% endfor %}
             <td>
 
-                <a href="edit_apartment/1">edit</a> <br/>
-                <a href="#">Delete</a>
+
+
+
+
+                {% comment %} <a href="edit_apartment/"+$x>edit</a> <br/> {% endcomment %}
+                <a href="app/edit_apartment/{{item.id}}" id="myedit">Edit</a>
+
+                <a href="app/edit_apartment/{{item.id}}" id="myedit">Delete</a>
+                {% comment %} <script>
+                    var x = localStorage.getItem('id');
+
+                    var url = "app/edit_apartment/" + encodeURIComponent(x);
+
+
+                    document.getElementById("myedit").href = url;
+                </script> {% endcomment %}
             </td>
         </tr>
+
     {% endfor %}
 
 
