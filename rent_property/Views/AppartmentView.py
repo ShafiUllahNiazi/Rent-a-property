@@ -2,8 +2,9 @@ import os
 from datetime import datetime
 
 from django.core.files.storage import FileSystemStorage
+from rest_framework.renderers import TemplateHTMLRenderer
 
-from rent_property.models import Apartment
+from rent_property.models import Apartment, ApartmentImages
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
 from rest_framework.views import APIView
 from rest_framework.views import status
@@ -35,6 +36,8 @@ from django.core.files.base import ContentFile
 
 
 class ApartmentView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/index.html'
 
     def post(self, request):
         data = request.data
@@ -57,6 +60,34 @@ class ApartmentView(APIView):
         return Response(serializer.errors, status=422)
 
 
+class ApartmentUpdateView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/index.html'
+
+    def post(self, request, pk):
+        try:
+            apartment_info = Apartment.objects.filter(id=pk).first()
+            images = ApartmentImages.objects.filter(apartment_id=pk)
+            apartment_images = []
+            for image in images:
+                apartment_images.append(image.pictures)
+        except Exception as e:
+            return Response({"detail": "Id not found in data!"}, status=422)
+
+        request_data = request.data
+
+        request_data = request_data.dict()
+        request_data.update({"apartment_images": apartment_images})
+        serializer = ApartmentSerializer(apartment_info, data=request_data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(serializer.data, status=200)
+        else:
+            return Response(serializer.errors, status=422)
+
+
 class ApartmrntDetailedView(APIView):
     def get(self, request, pk):
         try:
@@ -67,22 +98,7 @@ class ApartmrntDetailedView(APIView):
         serializer = ApartmentSerializer(apartment_info)
         return Response(serializer.data)
 
-    def put(self, request, pk):
-        try:
-            apartment_info = Apartment.objects.filter(id=pk).first()
-        except Exception as e:
-            return Response({"detail": "Id not found in data!"}, status=422)
 
-        request_data = request.data
-        request_data = request_data.dict()
-        serializer = ApartmentSerializer(apartment_info, data=request_data)
-
-        if serializer.is_valid():
-            serializer.save()
-
-            return Response(serializer.data, status=200)
-        else:
-            return Response(serializer.errors, status=422)
 
     def delete(self, request, pk):
         if pk is not None:

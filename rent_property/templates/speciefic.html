@@ -24,7 +24,6 @@
 
 <body>
     <!-- Sidebar -->
-    
     <div class="navbar">
         <div class="navbar-margin">
             <div class="navbar-left-section">
@@ -111,8 +110,8 @@
         <div class="grid-images-90">
             <div class="title">
              <div>
-                <h2>10 Marla House Baghbanpura Lahore</h2>
-                <h2 class="pkr">PKR <span>85.1 Lakh</span></h2>
+                <h2>{{ data.title }}  {{ data.city }} </h2>
+                <h2 class="pkr">PKR <span>{{ data.price }}</span></h2>
              </div>
                <div class="two_buttons">
                    <a href="tel:03059379621"><i class="fa fa-phone"></i></a>
@@ -144,7 +143,7 @@
             <div class="description" style="margin-bottom: 5vh;"><br>
                 <p>
                     <span style="font-size: 22px;font-weight: bolder;">About This Property: </span><br>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam sit illum mollitia iure voluptatibus nulla? Odit fugit iure est a debitis doloremque deleniti consequuntur praesentium veritatis, maxime laborum iusto expedita?Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatem, sequi atque eligendi earum minus eos voluptatum aliquid est quam deleniti ea totam nam minima fugit, unde architecto porro id. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam iste unde deserunt natus animi sapiente, porro odit quod. Itaque, doloremque! Illo cum sint doloremque quo. Asperiores earum tempore id fugit! 
+                    {{ data.description }}
                 </p>
             </div>
             <ul>

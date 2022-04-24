@@ -27,16 +27,12 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: #04AA6D;
+            background-color: #0077B5;
             color: white;
         }
     </style>
 </head>
 <body>
-<h1>A Fancy Table</h1>
-{#<p> {{ data }} </p>#}
-
-
 
 <table id="customers">
     <tr>
@@ -72,8 +68,8 @@
             {% endfor %}
             <td>
 
-                <a href="edit_apartment/1">edit</a> <br/>
-                <a href="#">Delete</a>
+                <a href="edit_apartment/{{item.id }}">edit</a> <br/>
+                <a href="del_apartment/{{item.id }}">Delete</a>
             </td>
         </tr>
     {% endfor %}
