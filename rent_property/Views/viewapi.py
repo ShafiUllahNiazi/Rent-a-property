@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -68,7 +69,9 @@ class edit_apartment(APIView):
             return Response({"detail": str(e)}, status=422)
 
         serializer = ApartmentSerializer(apartment_info)
-        return Response({'data': serializer.data}, status=200)
+        return HttpResponseRedirect(redirect_to='/app/show_apartments')
+
+        # return Response({'data': serializer.data}, status=200)
 
 
 class del_apartment(APIView):
@@ -84,8 +87,8 @@ class del_apartment(APIView):
                 return Response({"detail": str(e)}, status=422)
         else:
             return Response({"detail": "Apartment ID not found in request"}, status=422)
-
-        return Response({"detail": "Deleted Apartment Successfully!"}, status=200)
+        return HttpResponseRedirect(redirect_to='/app/show_apartments')
+        # return Response({"detail": "Deleted Apartment Successfully!"}, status=200)
 
 
 
