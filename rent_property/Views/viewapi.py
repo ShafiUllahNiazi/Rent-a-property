@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,7 +13,7 @@ class Home_page_view(APIView):
 
     def get(self, request):
         try:
-            info_set = Apartment.objects.all()[:6]
+            info_set = Apartment.objects.all()[:9]
             serializer = ApartmentSerializer(info_set, many=True)
 
             return Response({'data': serializer.data}, status=200)
@@ -56,10 +57,59 @@ class show_apartments(APIView):
             return Response({'data': serializer.data}, status=200)
         except Exception as e:
             return Response({"detail": str(e)}, status=422)
+class show_apartments1(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/sellproperty.html'
+
+    def get(self, request,pk):
+        try:
+            data=request.POST
+            
+            print (data)
+            info_set = Apartment.objects.filter(property_status=pk)
+            serializer = ApartmentSerializer(info_set, many=True)
+
+            return Response({'data': serializer.data}, status=200)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=422)
 
 class edit_apartment(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = '../templates/edit_apartment.html'
+
+    def get(self, request, pk):
+        try:
+            apartment_info = Apartment.objects.get(id=pk)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=422)
+
+        serializer = ApartmentSerializer(apartment_info)
+        # return HttpResponseRedirect(redirect_to='/app/show_apartments')
+
+        return Response({'data': serializer.data}, status=200)
+
+
+class del_apartment(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/show_apartments.html'
+
+    def get(self, request, pk):
+        if pk is not None:
+            try:
+                apartment_info = Apartment.objects.get(id=pk)
+                apartment_info.delete()
+            except Exception as e:
+                return Response({"detail": str(e)}, status=422)
+        else:
+            return Response({"detail": "Apartment ID not found in request"}, status=422)
+        return HttpResponseRedirect(redirect_to='/app/show_apartments')
+        # return Response({"detail": "Deleted Apartment Successfully!"}, status=200)
+
+
+
+class details_apartment(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/speciefic.html'
 
     def get(self, request, pk):
         try:

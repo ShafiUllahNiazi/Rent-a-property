@@ -22,9 +22,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- Title -->
     <title>Landlord | Sell, Buy, and Rent Property </title>
-
 </head>
-
 <body>
 <!-- Start Navbar -->
 <div class="navbar">
@@ -113,89 +111,6 @@
 <!-- Form is here -->
 <!-- Form is here -->
  <!-- Search Property By Filter Here -->
-<div class="test">
- <div class="banner-margin">
-    <form action="" method="post" class="form">
-        <h2>Search Property</h2>
-        <select name="" id="type">
-            <option disabled selected value="#"> &#xf1ad; Property Type</option>
-            <option value="#">Commercial</option>
-            <option value="#">Agricultural</option>
-            <option value="#">Industrial</option>
-            <option value="#">Residental</option>
-        </select>
-        <select name="" id="city">
-            <option disabled selected value="#"> &#xf279; Select City</option>
-            <option value="#" id="lahore">Lahore</option>
-            <option value="#">Islamabad</option>
-            <option value="#">Quetta</option>
-            <option value="#">Peshawar</option>
-            <option value="#">Rawalpindi</option>
-            <option value="#">Nankana Sahib</option>
-            <option value="#">Karachi</option>
-        </select>
-        <select name="" id="area">
-            <option disabled selected value="#"> &#xf279; Select Area</option>
-            <option value="#">Gulberg III</option>
-            <option value="#">MughalPura</option>
-            <option value="#">Shalimar</option>
-            <option value="#">Mall Road</option>
-            <option value="#">Saddar</option>
-            <option value="#">Kot Lakhpat</option>
-            <option value="#">Ali Town</option>
-        </select>
-        <div id="radio">
-            <label class="not-active" for="Sell">Sell</label>
-            <label class="not-active" for="Rent">Rent</label>
-            <label class=" active not-active" for="Buy">Buy</label>
-        </div>
-        <button class="btn" type="submit">
-            <i class="fa fa-search"></i> Search
-        </button>
-
-    </form>
-
-    <!-- Property Type here second section -->
-    <div class="property-type">
-
-        <div class="text">
-            <h2>Select Property Type</h2>
-            <div class="types">
-                <div class="types1">
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="pepicons:house" data-width="40" data-height="40"></span>
-                        <h3>House</h3>
-                    </a>
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="bi:building" data-width="40" data-height="40"></span>
-                        <h3>Building</h3>
-                    </a>
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="fontisto:holiday-village" data-width="40" data-height="40"></span>
-                        <h3>Villas</h3>
-                    </a>
-                </div>
-                <div href="#" class="types1">
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="ep:office-building" data-width="40" data-height="40"></span>
-                        <h3>Apartments</h3>
-                    </a>
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="carbon:industry" data-width="40" data-height="40"></span>
-                        <h3>Industrial</h3>
-                    </a>
-                    <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="emojione-monotone:house-with-garden" data-width="40"
-                            data-height="40"></span>
-                        <h3>Banglows</h3>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </div>
- </div>
-</div>
 
 
 
@@ -210,15 +125,14 @@
 <div class="grid">
     <div class="grid-margin">
         <div class="cont-1">
-            <h2>Latest Property For Sale</h2>
+            <h2> Property For You</h2>
             <p>
                 Some of the big societies are selling their products are for sale.Hurry to catch one that is suit for you. These are
                 cheap and in cool societies.
             </p>
         </div><br><br>
         
-            <div class="grid-main ">
-                
+            <div class="grid-main cardpadding">
             {% for item in data %}
 
 {#            {% for key, value in item.items %}#}
@@ -239,9 +153,9 @@
 {#                {% endif %}#}
 {#                {% endfor %}#}
 
-                <div class="m1">
-                <div class="card1 cardmargin " style="margin-bottom: 500px;">
-                    <div class="cardmargin m1" style='margin-bottom:500px;''margin-top:500px;' >
+
+                <div class="card1 cardmargin" >
+                    <div class="cardmargin" style='margin-bottom:500px;''margin-top:500px;' >
                   <div id="bg-image1"   class="picture lazy">
                   </div>
                   <div class="property-info">
@@ -356,10 +270,10 @@
 
             </div>
 
-        </div>
+
 
     {% endfor %}
-        
+
     
             </div>
         </div>

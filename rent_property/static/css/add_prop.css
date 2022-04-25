@@ -675,6 +675,12 @@ footer .bottom-details .bottom_text {
   opacity: 1;
   text-decoration: underline;
 }
+.cardmargin{
+  margin-bottom: 100px;
+}
+.cardpadding{
+  margin-bottom: 50px;
+}
 .bottom-details .bottom_text a {
   margin-right: 10px;
 }

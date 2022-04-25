@@ -24,14 +24,13 @@
 
 <body>
     <!-- Sidebar -->
-    
     <div class="navbar">
         <div class="navbar-margin">
             <div class="navbar-left-section">
                 <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
                 <span>
-                    <a href="buy_property.html">Buy</a>
-                    <a href="rent_property.html">Rent</a>
+                    <a href="/app/property/Yes">Buy</a>
+                    <a href="/app/property/No">Rent</a>
                     <a href="projects.html">Projects</a>
     
                     <a href="contact.html">Contact</a>
@@ -80,7 +79,7 @@
     
                     <span style="margin-left: 5px;">Add Property</span>
                 </a>
-                <a class="add" href="#popup1"><i class="far fa-user" aria-hidden="true"></i></a>
+                <a class="add" href="/app/addproperty"><i class="far fa-user" aria-hidden="true"></i></a>
                 <button onclick="run()" class="barz">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -92,9 +91,9 @@
     <!-- Sidebar will showed us when screen size will be 880 -->
     <div class="sidebar">
         <a href="disable" disabled></a>
-        <a href="add_property.html">Add Property</a>
-        <a href="buy_property.html">Buy</a>
-        <a href="rent_property.html">Rent</a>
+        <a href="/app/addproperty">Add Property</a>
+        <a href="/app/property/Yes">Buy</a>
+        <a href="/app/property/No">Rent</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
         <a class="signup" href="signup.html">Sign Up</a>
@@ -111,8 +110,8 @@
         <div class="grid-images-90">
             <div class="title">
              <div>
-                <h2>10 Marla House Baghbanpura Lahore</h2>
-                <h2 class="pkr">PKR <span>85.1 Lakh</span></h2>
+                <h2>{{ data.title }}  {{ data.city }} </h2>
+                <h2 class="pkr">PKR <span>{{ data.price }}</span></h2>
              </div>
                <div class="two_buttons">
                    <a href="tel:03059379621"><i class="fa fa-phone"></i></a>
@@ -144,7 +143,7 @@
             <div class="description" style="margin-bottom: 5vh;"><br>
                 <p>
                     <span style="font-size: 22px;font-weight: bolder;">About This Property: </span><br>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam sit illum mollitia iure voluptatibus nulla? Odit fugit iure est a debitis doloremque deleniti consequuntur praesentium veritatis, maxime laborum iusto expedita?Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatem, sequi atque eligendi earum minus eos voluptatum aliquid est quam deleniti ea totam nam minima fugit, unde architecto porro id. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam iste unde deserunt natus animi sapiente, porro odit quod. Itaque, doloremque! Illo cum sint doloremque quo. Asperiores earum tempore id fugit! 
+                    {{ data.description }}
                 </p>
             </div>
             <ul>
@@ -242,8 +241,8 @@
                 <ul class="box">
                     <li class="link_name">Services</li>
                     <li><a href="#">Sell</a></li>
-                    <li><a href="#">Buy</a></li>
-                    <li><a href="#">Rent</a></li>
+                    <li><a href="/app/property/Yes">Buy</a></li>
+                    <li><a href="/app/property/No">Rent</a></li>
                     <li><a href="#">Installments</a></li>
                 </ul>
                 <ul class="box">
