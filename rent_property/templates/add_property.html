@@ -33,8 +33,8 @@
             <div class="navbar-left-section">
                 <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
                 <span>
-                    <a href="buy_property.html">Buy</a>
-                    <a href="rent_property.html">Rent</a>
+                    <a href="/app/property/Yes">Buy</a>
+                    <a href="/app/property/No">Rent</a>
                     <a href="projects.html">Projects</a>
 
                     <a href="app/contact">Contact</a>
@@ -83,7 +83,7 @@
 
                     <span style="margin-left: 5px;">Add Property</span>
                 </a>
-                <a class="add" href="#popup1"><i class="far fa-user" aria-hidden="true"></i></a>
+                <a class="add" href="/app/addproperty"><i class="far fa-user" aria-hidden="true"></i></a>
                 <button onclick="run()" class="barz">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -95,9 +95,9 @@
     <!-- Sidebar will showed us when screen size will be 880 -->
 <div class="sidebar">
     <a href="disable" disabled></a>
-    <a href="add_property.html">Add Property</a>
-    <a href="buy_property.html">Buy</a>
-    <a href="rent_property.html">Rent</a>
+    <a href="/app/addproperty">Add Property</a>
+    <a href="/app/property/Yes">Buy</a>
+    <a href="/app/property/No">Rent</a>
     <a href="projects.html">Projects</a>
     <a href="app/contact">Contact</a>
     <a class="signup" href="signup.html">Sign Up</a>
@@ -155,36 +155,11 @@
         </div>
         <div class="p_bedrooms">
             <label for="#">Bedrooms</label>
-            <select name="no_of_rooms" id="no_of_rooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6+</option>
-            </select>
+            <input type="text" name="no_of_rooms"  id="no_of_rooms"/>
         </div>
         <div class="p_bathrooms">
             <label for="#">Bathrooms</label>
-            <select name="no_of_washrooms" id="no_of_washrooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4+</option>
-            </select>
-        </div>
-        <label for="#">Features</label>
-        <div class="p_features">
-
-            <label>Drawing Room</label>
-            <label>Prayer Room</label>
-            <label>Laundry Room</label>
-            <label>Store Room</label>
-            <label>Study Room</label>
-            <label>Kitchn</label>
-            <label>Gym</label>
-            <label>Launge</label>
-            <label>Servent Quarters</label>
+            <input type="text" name="no_of_washrooms"  id="no_of_washrooms">
         </div>
 
         <div class="p_area_unit">
@@ -274,27 +249,14 @@
         </div>
 
 
-
         <div class="p_state">
             <label for="#">Confirm Location</label>
             <label for="#">Select State/Province</label>
-            <select name="state" id="state_id">
-                <option value="punjab">Punjab</option>
-                <option value="sindh">Sindh</option>
-                <option value="balochistan">Balochistan</option>
-                <option value="khyber">Khyber</option>
-                <option value="kashmir">Kashmir</option>
-                <option value="gilgit">Gilgit</option>
-            </select>
+            <input type="text" name="state" id="state_id"/>
         </div>
         <div class="p_city">
             <label for="#">Select City</label>
-            <select name="city" id="city_id">
-                <option value="lahore">Lahore</option>
-                <option value="karachi">Karachi</option>
-                <option value="multan">Multan</option>
-                <option value="islamabad">Islamabad</option>
-            </select>
+            <input type="text" placeholder="City Name" name="city" id="city_id">
         </div>
         <div class="p_street_adress">
             <label for="#">Street Adress</label>
@@ -349,8 +311,8 @@
             <ul class="box">
                 <li class="link_name">Services</li>
                 <li><a href="#">Sell</a></li>
-                <li><a href="#">Buy</a></li>
-                <li><a href="#">Rent</a></li>
+                <li><a href="/app/property/Yes">Buy</a></li>
+                <li><a href="/app/property/No">Rent</a></li>
                 <li><a href="#">Installments</a></li>
             </ul>
             <ul class="box">

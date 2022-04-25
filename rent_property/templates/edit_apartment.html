@@ -26,15 +26,15 @@
 </head>
 
 <body>
-    <!-- Sidebar -->ewt
+    <!-- Sidebar -->
 
     <div class="navbar">
         <div class="navbar-margin">
             <div class="navbar-left-section">
                 <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
                 <span>
-                    <a href="buy_property.html">Buy</a>
-                    <a href="rent_property.html">Rent</a>
+                    <a href="/app/property/Yes">Buy</a>
+                    <a href="/app/property/No">Rent</a>
                     <a href="projects.html">Projects</a>
 
                     <a href="app/contact">Contact</a>
@@ -83,7 +83,7 @@
 
                     <span style="margin-left: 5px;">Add Property</span>
                 </a>
-                <a class="add" href="#popup1"><i class="far fa-user" aria-hidden="true"></i></a>
+                <a class="add" href="/app/addproperty"><i class="far fa-user" aria-hidden="true"></i></a>
                 <button onclick="run()" class="barz">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -95,9 +95,9 @@
     <!-- Sidebar will showed us when screen size will be 880 -->
 <div class="sidebar">
     <a href="disable" disabled></a>
-    <a href="add_property.html">Add Property</a>
-    <a href="buy_property.html">Buy</a>
-    <a href="rent_property.html">Rent</a>
+    <a href="/app/addproperty">Add Property</a>
+    <a href="/app/property/Yes">Buy</a>
+    <a href="/app/property/No">Rent</a>
     <a href="projects.html">Projects</a>
     <a href="app/contact">Contact</a>
     <a class="signup" href="signup.html">Sign Up</a>
@@ -129,70 +129,79 @@
     </div>
     <div class="p_title">
         <label for="ice-cream-choice">Select Property type:</label>
-        <input type="text" value="{{ data.apartment_type }}" id="apartment_type" name="apartment_type" />
+        <input list="ice-cream-flavors" value="{{data.apartment_type}}" id="apartment_type" name="apartment_type" />
 
+        <datalist id="ice-cream-flavors">
+            <option value="Home">
+            <option value="Hostel">
+            <option value="Shop">
+            <option value="Building">
+        </datalist>
     </div>
         <div class="p_title">
             <label for="#">Add Title</label>
-            <input type="text" value="{{ data.title }}" placeholder="10 Marla Luxury Home " name="title" id="title">
+            <input type="text" placeholder="10 Marla Luxury Home " value="{{data.title}}" name="title" id="title">
         </div>
         <div class="p_description">
             <label for="#">Description</label>
-            <input type="text" name="description" value="{{ data.description }}" placeholder="Enter About Property 50-400 words" id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" placeholder="Enter About Property 50-400 words" value="{{data.description}}" id="description" cols="30" rows="10"></textarea>
         </div>
         <div class="p_furnished">
             <label for="#">Furnished</label>
-            <input type="text" name="property_status" value="{{ data.property_status }}" id="property_status"/>
+            <select value="{{data.property_status}}" name="property_status" id="property_status">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
         </div>
         <div class="p_bedrooms">
             <label for="#">Bedrooms</label>
-            <input type="text" name="no_of_rooms" value="{{ data.no_of_rooms }}" id="no_of_rooms"/>
+            <input type="text" value="{{data.no_of_rooms}}" name="no_of_rooms"  id="no_of_rooms"/>
         </div>
         <div class="p_bathrooms">
             <label for="#">Bathrooms</label>
-            <input type="text" name="no_of_washrooms" value="{{ data.no_of_washrooms }}" id="no_of_washrooms">
-        </div>
-        <label for="#">Features</label>
-        <div class="p_features">
-
-            <label>Drawing Room</label>
-            <label>Prayer Room</label>
-            <label>Laundry Room</label>
-            <label>Store Room</label>
-            <label>Study Room</label>
-            <label>Kitchn</label>
-            <label>Gym</label>
-            <label>Launge</label>
-            <label>Servent Quarters</label>
+            <input type="text" value="{{data.no_of_washrooms}}" name="no_of_washrooms"  id="no_of_washrooms">
         </div>
 
         <div class="p_area_unit">
             <label for="#">Area Unit</label>
-            <input type="text" name="area_unit" value="{{ data.area_unit }}" id="area_unit_id"/>
+            <select value="{{data.area_unit}}" name="area_unit" id="area_unit_id">
+                <option value="kanal">Kanal</option>
+                <option value="marla">Marla</option>
+                <option value="square feet">Square Feet</option>
+                <option value="square meter">Square Meter</option>
+                <option value="square yards">Square Yards</option>
+            </select>
         </div>
 
 
         <div class="p_area">
             <label for="#">Area</label>
-            <input type="text" value="{{ data.area }}" placeholder="10" name="area" id="area_id">
+            <input type="text" placeholder="10" value="{{data.area}}" name="area" id="area_id">
 
         </div>
         <div class="p_area">
             <label for="#">Longitude</label>
-            <input type="text" placeholder="10" name="longitude" value="{{ data.longitude }}" id="Longitude">
+            <input type="text" placeholder="10" value="{{data.longitude}}" name="longitude" id="Longitude">
 
         </div>
         <div class="p_area">
             <label for="#">Latitude</label>
-            <input type="text" placeholder="10" name="latitude" value="{{ data.latitude }}" id="Latitude">
+            <input type="text" placeholder="10" value="{{data.latitude}}" name="latitude" id="Latitude">
 
         </div>
         <div class="p_price">
-            <label for="#">Price</label>
-            <input type="text" placeholder="1.2 Crore" name="price" value="{{ data.price }}" id="price">
+            <label for="#">Set Price</label>
+            <input type="text" placeholder="1.2 Crore" value="{{data.price}}" name="price" id="price">
 
         </div>
+        <div style="display: block;font-size: 16px;font-weight: bolder;margin: 20px;" class="or">
+            or
+        </div>
+        <div class="p_price">
+            <label for="#">Set Rent Per Month</label>
+            <input type="text" placeholder="29 Thousand" value="{{data.price}}" name="price" id="price">
 
+        </div>
 
 
     <label for="#">Upload Upto 10 Photos</label><br>
@@ -245,17 +254,15 @@
         <div class="p_state">
             <label for="#">Confirm Location</label>
             <label for="#">Select State/Province</label>
-            <input type="text" name="state" value="{{ data.state }}" id="state_id"/>
+            <input type="text" value="{{data.state}}" name="state" id="state_id"/>
         </div>
         <div class="p_city">
             <label for="#">Select City</label>
-            <input type="text" name="city" value="{{ data.city }}" id="city_id"/>
-
-
+            <input type="text" placeholder="City Name" value="{{data.city}}" name="city" id="city_id">
         </div>
         <div class="p_street_adress">
             <label for="#">Street Adress</label>
-            <input type="text" placeholder="H#15a2, Johar Town" name="street_address" value="{{ data.street_address }}" id="street_address_id">
+            <input type="text" placeholder="H#15a2, Johar Town" value="{{data.street_address}}" name="street_address" id="street_address_id">
         </div>
         <button class="submit" type="submit">Update Now</button>
     </form>
@@ -306,8 +313,8 @@
             <ul class="box">
                 <li class="link_name">Services</li>
                 <li><a href="#">Sell</a></li>
-                <li><a href="#">Buy</a></li>
-                <li><a href="#">Rent</a></li>
+                <li><a href="/app/property/Yes">Buy</a></li>
+                <li><a href="/app/property/No">Rent</a></li>
                 <li><a href="#">Installments</a></li>
             </ul>
             <ul class="box">
