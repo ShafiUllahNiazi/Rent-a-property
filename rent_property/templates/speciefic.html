@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +16,8 @@
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Vanila CSS -->
-    <link rel="stylesheet" href="./css/speciefic.css">
+       {% load static %}
+    <link rel="stylesheet" href= "{% static './css/speciefic.css' %}" />
     <!-- Title -->
     <title>Landlord | Sell, Buy, and Rent Property </title>
 </head>
@@ -29,15 +29,14 @@
             <div class="navbar-left-section">
                 <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
                 <span>
-                    <a href="/app/property/Yes">Buy</a>
-                    <a href="/app/property/No">Rent</a>
-                    <a href="projects.html">Projects</a>
-    
-                    <a href="contact.html">Contact</a>
+                <a href="/app/property/Yes">Buy</a>
+                <a href="/app/property/No">Rent</a>
+                <a href="/app/show_apartments">Appartments</a>
+                <a href="/app/addcontact">Contact</a>
                 </span>
             </div>
             <div class="navbar-right-section">
-                <a href="add_property.html">
+                <a href="/app/addproperty">Add Property</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 22.608 22.6">
                         <defs>
                             <style>
