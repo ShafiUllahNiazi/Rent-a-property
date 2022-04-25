@@ -19,6 +19,8 @@ urlpatterns = [
     path('app/del_apartment/<int:pk>', viewapi.del_apartment.as_view(), name='del_apartment'),
     path('app/details_apartment/<int:pk>', viewapi.details_apartment.as_view(), name='details_apartment'),
     path('app/property/<str:pk>', viewapi.show_apartments1.as_view(), name='details_apartment'),
+    path('app/city_apartment/<str:pk>', viewapi.city_apartment.as_view(), name='city_apartment'),
+    path('app/detail_contact', viewapi.show_contact.as_view(), name='show_contact'),
 
     
     

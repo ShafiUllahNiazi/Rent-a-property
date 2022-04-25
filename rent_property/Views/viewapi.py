@@ -4,7 +4,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
-from rent_property.models import Apartment
+from rent_property.Serializers.ContactUsSerializer import ContactUsSerializer
+from rent_property.models import Apartment, ContactUs
+from django.db.models.functions import Lower
 
 
 class Home_page_view(APIView):
@@ -45,6 +47,21 @@ class add_property_data(APIView):
         return Response({'profiles': 'abc'})
 
 
+class show_contact(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/show_contact.html'
+
+    def get(self, request):
+        query_set = ContactUs.objects.first()
+        if not query_set:
+
+            return Response({}, status=200)
+
+        serializer = ContactUsSerializer(query_set)
+
+        return Response({'data': serializer.data})
+
+
 class show_apartments(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = '../templates/show_apartments.html'
@@ -57,6 +74,8 @@ class show_apartments(APIView):
             return Response({'data': serializer.data}, status=200)
         except Exception as e:
             return Response({"detail": str(e)}, status=422)
+
+
 class show_apartments1(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = '../templates/sellproperty.html'
@@ -67,6 +86,24 @@ class show_apartments1(APIView):
             
             print (data)
             info_set = Apartment.objects.filter(property_status=pk)
+            serializer = ApartmentSerializer(info_set, many=True)
+
+            return Response({'data': serializer.data}, status=200)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=422)
+
+
+class city_apartment(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = '../templates/city_apartment.html'
+
+    def get(self, request, pk):
+        try:
+            pk = pk.lower()
+
+            Apartment.objects.update(city=Lower('city'))
+            info_set = Apartment.objects.all().filter(city=pk)
+
             serializer = ApartmentSerializer(info_set, many=True)
 
             return Response({'data': serializer.data}, status=200)

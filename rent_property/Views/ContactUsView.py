@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 
 from rent_property.models import ContactUs
 from rent_property.Serializers.ContactUsSerializer import ContactUsSerializer
@@ -7,23 +8,24 @@ from rest_framework.response import Response
 
 class ContactUsView(APIView):
     def post(self, request):
-        serializer = ContactUsSerializer(data=request.data)
+        request_data = request.data
+        contact = ContactUs.objects.first()
+        request_data = request.data
+
+        request_data = request_data.dict()
+
+        if contact:
+            serializer = ContactUsSerializer(contact, data=request_data)
+        else:
+            serializer = ContactUsSerializer(data=request_data)
+
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=200)
+            return HttpResponseRedirect(redirect_to='')
         return Response(serializer.errors, status=422)
 
 
 class ContactUsDetailedView(APIView):
-    def get(self, request, pk):
-        try:
-            appartment_info = ContactUs.objects.get(id=pk)
-        except Exception as e:
-            return Response({"detail": str(e)}, status=422)
-
-        serializer = ContactUsSerializer(appartment_info)
-        return Response(serializer.data)
-
     def put(self, request, pk):
         try:
             contact_info = ContactUs.objects.filter(id=pk).first()
