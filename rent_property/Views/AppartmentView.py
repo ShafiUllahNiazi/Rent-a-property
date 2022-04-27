@@ -47,7 +47,7 @@ class ApartmentView(APIView):
             file = request.FILES[image]
             ext = request.FILES[image].name.split('.')[-1]
             new_file_name = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + '.' + ext
-            path = default_storage.save(r'{}/{}'.format('images', new_file_name), ContentFile(file.read()))
+            path = default_storage.save(r'rent_property/static/{}/{}'.format('images', new_file_name), ContentFile(file.read()))
             apartment_images.append(r'{}/{}'.format('images', new_file_name))
 
         data.update({"apartment_images": apartment_images})
@@ -64,28 +64,27 @@ class ApartmentUpdateView(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = '../templates/index.html'
 
-    def post(self, request, pk):
-        try:
-            apartment_info = Apartment.objects.filter(id=pk).first()
-            images = ApartmentImages.objects.filter(apartment_id=pk)
-            apartment_images = []
-            for image in images:
-                apartment_images.append(image.pictures)
-        except Exception as e:
-            return Response({"detail": "Id not found in data!"}, status=422)
+    def post(self, request):
+        data = request.data
+        data = data.dict()
+        apartment_images = []
+        for image in request.FILES:
+            file = request.FILES[image]
+            ext = request.FILES[image].name.split('.')[-1]
+            new_file_name = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + '.' + ext
+            # path = default_storage.save(r'{}/{}'.format('images', new_file_name), ContentFile(file.read()))
+            # apartment_images.append(r'{}/{}'.format('images', new_file_name))
+            path = default_storage.save(r'rent_property/static/{}/{}'.format('imagess', new_file_name), ContentFile(file.read()))
+            apartment_images.append(r'{}/{}'.format('images', new_file_name))
 
-        request_data = request.data
-
-        request_data = request_data.dict()
-        request_data.update({"apartment_images": apartment_images})
-        serializer = ApartmentSerializer(apartment_info, data=request_data)
-
+        data.update({"apartment_images": apartment_images})
+        # pdb.set_trace()
+        # data = {k: v[0] for k, v in dict(data).items()}
+        serializer = ApartmentSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-
             return Response(serializer.data, status=200)
-        else:
-            return Response(serializer.errors, status=422)
+        return Response(serializer.errors, status=422)
 
 
 class ApartmrntDetailedView(APIView):

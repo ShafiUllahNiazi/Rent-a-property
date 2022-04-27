@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
@@ -76,7 +78,7 @@
                         </g>
                     </svg>
     
-                    <span style="margin-left: 5px;">Add Property</span>
+                    <span style="margin-left: 5px;"></span>
                 </a>
                 <a class="add" href="/app/addproperty"><i class="far fa-user" aria-hidden="true"></i></a>
                 <button onclick="run()" class="barz">
@@ -118,26 +120,15 @@
                </div>
             </div>
            
-            <div class="grid">
-                    <div class="grid0 grid1">
-                        <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
-                    </div>
-                    <div class="grid0 grid2">
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
-                    </div>
-                    <div class="grid0 grid4">
-                        <img src="https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJlYWwlMjBlc3RhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                            alt="">
-                    </div>
-                    <div class="grid0 grid4">
-                        <img src="https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJlYWwlMjBlc3RhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="">
-                    </div>
-                    <div class="grid0 grid5">
-                        <img src="https://images.unsplash.com/photo-1565402170291-8491f14678db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlYWwlMjBlc3RhdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="">
-                    </div>
-                     
-                    
+            <div style="margin-left:40px;">
+    {% for img1 in imgdata %}
 
+<!--        {% load static %}<img src='{% static "{{img1.pictures}}" %}' alt="Hi!" />-->
+
+
+    <img src="{% static 'images/home_1.jpg' %}" width="270px" height="385px">
+<!--    <img src="static/{{img1.pictures}}" width="270px" height="385px">-->
+|
             </div>
             <div class="description" style="margin-bottom: 5vh;"><br>
                 <p>
@@ -147,10 +138,9 @@
             </div>
             <ul>
             <h2>Key Features: </h2>
-            <li>Fully furnished Bedrooms</li>
-            <li>Dining Room</li>
-            <li>2 Kitchen</li>
-            <li>3 Bathrooms</li>
+            <li>Appartment Type: {{data.apartment_type}}</li>
+            <li>{{data.no_of_washrooms}} Bathrooms</li>
+            <li>{{data.no_of_rooms}} Bedrooms</li>
             <li>Beautifull Location</li>
             </ul>
            <div class="location_map">
@@ -161,7 +151,7 @@
            </div>
         </div>
     </div>
-
+    
    
 
     <div class="all_images">
@@ -175,7 +165,26 @@
     <div class="image_list">
        
     </div>
+    
 </div>
+
+    
+
+{% endfor %}
+
+
+
+
+
+
+<ul style="margin-left:70px; list-style-type:none;">
+    <h2>Owner Infomation: </h2>
+    
+    <li>Name: {{condata.name}} </li>
+    <li>Phone: {{condata.phone}} </li>
+    <li>Email: {{condata.email}} </li>
+    
+    </ul>
 
 
 
@@ -187,7 +196,7 @@
         <i class="fa fa-times tim"></i>
     </div>
     <form action="#" class="popup-body">
-        <h2>Welcome to Kashif.com</h2>
+        <h2></h2>
         <input type="text" placeholder="Email Adress or Phone" name="" id="">
         <input type="text" placeholder="Password" name="" id="">
         <a href="#" class="forget">Forget Password?</a>

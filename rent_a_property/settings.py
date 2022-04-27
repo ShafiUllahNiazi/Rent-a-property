@@ -26,6 +26,11 @@ SECRET_KEY = 'django-insecure-^tloeypz8lm*i%u417q^#@b48l)gcbq0&w43)@v0qeo)sg^kxg
 DEBUG = True
 
 ALLOWED_HOSTS = []
+import os
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "rent_property"),
+]
 
 
 # Application definition

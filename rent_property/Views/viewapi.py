@@ -5,7 +5,8 @@ from rest_framework.views import APIView
 
 from rent_property.Serializers.AppartmentSerializer import ApartmentSerializer
 from rent_property.Serializers.ContactUsSerializer import ContactUsSerializer
-from rent_property.models import Apartment, ContactUs
+from rent_property.Serializers.ApartmentImagesSerializer import ApartmentImagesSerializer
+from rent_property.models import Apartment, ContactUs,ApartmentImages
 from django.db.models.functions import Lower
 
 
@@ -36,7 +37,17 @@ class contact(APIView):
     template_name = '../templates/contact.html'
 
     def get(self, request):
-        return Response({'profiles': 'abc'})
+        try:
+            contact = ContactUs.objects.first()
+            if(contact):
+                serializer = ContactUsSerializer(contact,)
+                print ("aaaaaaaaaaaa")
+                print (serializer.data)
+            else:
+                serializer = None
+            return Response({'data': serializer.data}, status=200)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=422)
 
 
 class add_property_data(APIView):
@@ -149,10 +160,34 @@ class details_apartment(APIView):
     template_name = '../templates/speciefic.html'
 
     def get(self, request, pk):
+        contact = ContactUs.objects.first()
+        if(contact):
+            conserializer = ContactUsSerializer(contact)
+            
+        else:
+            conserializer = None
+            
+        imagelist = ApartmentImages.objects.filter(apartment_id=pk)
+
+        if(imagelist):
+            imgserializer = ApartmentImagesSerializer(imagelist,many=True)
+            
+            
+            
+        else:
+            imgserializer = None
+        
         try:
             apartment_info = Apartment.objects.get(id=pk)
         except Exception as e:
             return Response({"detail": str(e)}, status=422)
 
         serializer = ApartmentSerializer(apartment_info)
-        return Response({'data': serializer.data}, status=200)
+        if conserializer is not None:
+            print(imgserializer.data)
+
+            return Response({'data': serializer.data,'condata':conserializer.data,'imgdata':imgserializer.data}, status=200)
+        else:
+            return Response({'data': serializer.data,'condata':{"No contact Data Found"},'imgdata':imgserializer.data}, status=200)
+
+
