@@ -18,8 +18,13 @@ class Home_page_view(APIView):
         try:
             info_set = Apartment.objects.all()
             serializer = ApartmentSerializer(info_set, many=True)
+            my_images = []
+            for item in serializer.data:
+                my_images.append(item["apartment_images"][0]['pictures'])
 
-            return Response({'data': serializer.data}, status=200)
+            # print(my_images)
+            data_imgs = zip(serializer.data,my_images)
+            return Response({'data': data_imgs}, status=200)
         except Exception as e:
             return Response({"detail": str(e)}, status=422)
 
@@ -168,9 +173,15 @@ class details_apartment(APIView):
             conserializer = None
             
         imagelist = ApartmentImages.objects.filter(apartment_id=pk)
+        imagelist2 =[]
 
         if(imagelist):
             imgserializer = ApartmentImagesSerializer(imagelist,many=True)
+
+            for item in imagelist:
+                imagelist2.append(item.pictures)
+
+            print(imagelist2)
             
             
             
@@ -186,8 +197,8 @@ class details_apartment(APIView):
         if conserializer is not None:
             print(imgserializer.data)
 
-            return Response({'data': serializer.data,'condata':conserializer.data,'imgdata':imgserializer.data}, status=200)
+            return Response({'data': serializer.data,'condata':conserializer.data,'imgdata':imagelist2}, status=200)
         else:
-            return Response({'data': serializer.data,'condata':{"No contact Data Found"},'imgdata':imgserializer.data}, status=200)
+            return Response({'data': serializer.data,'condata':{"No contact Data Found"},'imgdata':imagelist2}, status=200)
 
 

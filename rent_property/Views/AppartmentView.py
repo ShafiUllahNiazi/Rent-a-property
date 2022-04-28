@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseRedirect
 from rest_framework.renderers import TemplateHTMLRenderer
 
 from rent_property.models import Apartment, ApartmentImages
@@ -56,7 +57,8 @@ class ApartmentView(APIView):
         serializer = ApartmentSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=200)
+            # return Response(serializer.data, status=200)
+            return HttpResponseRedirect(redirect_to='/app/show_apartments')
         return Response(serializer.errors, status=422)
 
 
