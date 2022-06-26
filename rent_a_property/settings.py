@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'rent_a_property.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database',
+        'NAME': 'rent_property',
         'USER': 'admin',
         'PASSWORD': 'uob#15026436',
         'PORT': '3306',
