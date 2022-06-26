@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rent_property',
-        'USER': 'root',
-        'PASSWORD': 'usman12345678',
+        'USER': 'admin',
+        'PASSWORD': 'uob#15026436',
         'PORT': '3306',
-        'HOST': '127.0.0.1',
+        'HOST': 'database.c9g7xxg6vrcz.us-east-1.rds.amazonaws.com',
 
     }
 }
