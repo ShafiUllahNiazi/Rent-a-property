@@ -15,7 +15,7 @@ class Apartment(models.Model):
     price = models.CharField(max_length=200, null=True, blank=True)
     latitude = models.CharField(max_length=200, null=True, blank=True)
     longitude = models.CharField(max_length=200, null=True, blank=True)
-    state = models.CharField(max_length=200, null=True, blank=True)
+    #state = models.CharField(max_length=200, null=True, blank=True)
     city = models.CharField(max_length=200, null=True, blank=True)
     street_address = models.TextField(blank=True, null=True)
 
