@@ -8,7 +8,7 @@ class Apartment(models.Model):
     property_status = models.CharField(max_length=200, null=True, blank=True)
     no_of_rooms = models.CharField(max_length=200, null=True, blank=True)
     no_of_washrooms = models.CharField(max_length=200, null=True, blank=True)
-    #area_unit = models.CharField(max_length=200, null=True, blank=True)
+    area_unit = models.CharField(max_length=200, null=True, blank=True)
     area = models.CharField(max_length=200, null=True, blank=True)
     # address = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
