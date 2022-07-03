@@ -81,6 +81,7 @@ WSGI_APPLICATION = 'rent_a_property.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+#online
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -92,6 +93,19 @@ DATABASES = {
 
     }
 }
+
+##local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'rent_property',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'PORT': '3306',
+#         'HOST': '127.0.0.1',
+#
+#     }
+# }
 
 
 # Password validation
