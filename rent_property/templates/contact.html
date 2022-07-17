@@ -1,8 +1,4 @@
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/add_prop.css' %}">
-<script src="{% static './javascript/app.js' %}"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,12 +17,13 @@
           integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="./css/style.css">
-    <!-- Title -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static './css/contact.css' %}"/>
     <title>Landlord | Sell, Buy, and Rent Property </title>
+
 </head>
 
 <body>
-<!-- Start Navbar -->
 <div class="navbar">
     <div class="navbar-margin">
         <div class="navbar-left-section">
@@ -61,6 +58,7 @@
     </a>
 </div>
 
+
 <div class="company">
     <div class="company_90">
         <div class="company_45-left">
@@ -89,7 +87,7 @@
 
 </div>
 <br>
-<div class="our_address">
+<div class="our_address" style="margin-bottom: 100px">
     <div class="container">
         <form id="contact" action="/contact" method="post">
             <h2>Contact us</h2>
