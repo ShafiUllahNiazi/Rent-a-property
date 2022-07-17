@@ -1,0 +1,291 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_prop.css' %}">
+<script src="{% static './javascript/app.js' %}"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+
+          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Title -->
+    <title>Landlord | Sell, Buy, and Rent Property </title>
+</head>
+<body>
+<!-- Start Navbar -->
+<div class="navbar">
+    <div class="navbar-margin">
+        <div class="navbar-left-section">
+            <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
+            <span>
+                <a href="/app/property_buy">Buy</a>
+                <a href="/app/property_rent">Rent</a>
+                <a href="/app/show_apartments">Appartments</a>
+                <a href="/app/addcontact">Contact</a>
+            </span>
+
+        </div>
+        <div class="navbar-right-section">
+
+            <button onclick="run()" class="barz"><i class="fa fa-bars"></i></button>
+        </div>
+    </div>
+</div>
+<!-- End Navbar -->
+
+<!-- Sidebar -->
+<!-- Sidebar will showed us when screen size will be 880 -->
+<div class="sidebar">
+    <a href="disable" disabled></a>
+    <a href="/app/property_buy">Buy</a>
+    <a href="/app/property_rent">Rent</a>
+    <a href="/app/addcontact">Contact</a>
+</div>
+<div class="side-lay">
+    <a class="times" href="#">
+        <i class="fa fa-times"></i>
+    </a>
+</div>
+<!-- Form is here -->
+<!-- Form is here -->
+<!-- Search Property By Filter Here -->
+
+
+<!-- Start Hero-Banner -->
+
+
+<!-- Carousel -->
+
+<div class="grid">
+    <div class="grid-margin">
+        <div class="cont-1">
+            <h2> Properties For Rent</h2>
+        </div>
+        <br><br>
+        <div class="grid-main">
+            {#            {% for item,img in data|zip(photos) %}#}
+            {% for item,img in data %}
+                <div class="card1">
+                    <div style="background-position:center; background-size:cover;background-image: url('../static/{{ img }}');width: 100%;height: 25vh">
+                    </div>
+                    <div class="property-info">
+                        <div class="price">
+                            <h2>{{ item.area }} {{ item.area_unit }} Apartments</h2>
+                            <a href="">For Sale</a>
+                        </div>
+                        <div class="adress">
+                            <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+                            <P style="margin: 10px;">{{ item.street_address }}</P>
+                        </div>
+                        <br>
+                        <div class="specialIn">
+                            <div class="cd1">
+                                <div class="bed">
+                                <span class="iconify" data-icon="fluent:bed-20-regular" style="color: #0077B5"
+                                      data-width="50"
+                                      data-height="50"></span>
+                                    <p>
+                                        {{ item.no_of_rooms }} Beds
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="cd1">
+                                <div class="bed">
+                                    <span class="iconify" data-icon="majesticons:bath-shower-line"
+                                          style="color: #0077B5" data-width="50"
+                                          data-height="50"></span>
+                                    <p>
+                                        {{ item.no_of_washrooms }} Bath
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="cd1">
+                                <div class="bed">
+                                        <span class="iconify" data-icon="cil:garage" style="color: #0077B5"
+                                              data-width="50" data-height="50"></span>
+                                    <p>
+                                        1 Gar
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="buttons">
+                            <a href="tel:+923061234567">
+
+                                <svg id="mn" width="18px" height="18px" viewBox="0 0 28 28" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Uploaded to SVGRepo https://www.svgrepo.com -->
+                                    <title>ic_fluent_phone_28_regular</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="#fafafa"
+                                       fill-rule="evenodd">
+                                        <g id="ic_fluent_phone_28_regular" fill="#fafafa" fill-rule="nonzero">
+                                            <path
+                                                    d="M7.92072596,2.64472005 L9.58060919,2.14438844 C11.1435675,1.67327249 12.8134781,2.43464008 13.4828053,3.92352899 L14.5160823,6.22200834 C15.0865915,7.491081 14.7859439,8.98254111 13.7683291,9.93148073 L11.9633958,11.6146057 C11.9410906,11.6354021 11.9227774,11.6601187 11.9093651,11.6875342 C11.720585,12.0734103 12.0066606,13.1043886 12.9061418,14.6623357 C13.9199541,16.4183102 14.7035571,17.1131712 15.0654726,17.005305 L17.4348517,16.2809111 C18.765101,15.8742119 20.2066891,16.3591908 21.0206203,17.4872349 L22.4880851,19.5210248 C23.440761,20.8413581 23.2694403,22.6628821 22.0872853,23.782427 L20.8252038,24.9776653 C19.9337363,25.8219337 18.6854328,26.1763171 17.4833291,25.9264007 C13.966189,25.1951903 10.8150019,22.3628582 8.00336279,17.4929565 C5.18895293,12.6182556 4.31270988,8.46966127 5.44310245,5.05625686 C5.82703045,3.89692852 6.75144427,2.9971717 7.92072596,2.64472005 Z M8.35362603,4.08089467 C7.65205693,4.29236569 7.09740832,4.83222008 6.86705161,5.52781682 C5.89305385,8.46896164 6.6820141,12.2043134 9.30240089,16.7429565 C11.9202871,21.2772684 14.7578382,23.8276999 17.7886493,24.4578029 C18.5099109,24.6077526 19.2588899,24.3951235 19.7937719,23.888561 L21.0558584,22.6933179 C21.6924034,22.0904861 21.784653,21.1096654 21.2716737,20.3987168 L19.8042088,18.3649269 C19.3659382,17.7575185 18.5896985,17.496376 17.8734103,17.7153679 L15.4990066,18.4412788 C14.1848357,18.833027 12.9496858,17.7377562 11.6071037,15.4123357 C10.4705242,13.4437223 10.075962,12.0217729 10.5619671,11.0283539 C10.6558865,10.8363778 10.7841758,10.6632305 10.9404443,10.5175321 L12.7453325,8.83444937 C13.2932789,8.32348189 13.455166,7.52038798 13.1479688,6.83704116 L12.1146918,4.53856182 C11.7542848,3.7368524 10.8551022,3.32688524 10.0135093,3.58056306 L8.35362603,4.08089467 Z"
+                                                    id="🎨-Color"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                Call Now </a>
+
+
+                        </div>
+                        <div class="buttons">
+                            <a href="/app/details_apartment/{{ item.id }}">
+
+                                <svg height="18px" width="18px" fill="#0077B5" version="1.1" id="Layer_1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     x="0px"
+                                     y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                     xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M0,72.205v367.59h512V72.205H0z M469.425,111.59L256,289.444L42.576,111.59H469.425z M472.615,400.41H39.385V160.197
+                        			L256,340.71l216.615-180.513V400.41z"/>
+                                </g>
+                            </g>
+                                    <g>
+                                <g>
+                                    <rect x="367.59" y="321.641" width="65.641" height="39.385"/>
+                                </g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                                    <g>
+                            </g>
+                        </svg>
+
+                                <span style="margin-left: 5px;">Show Details</span></a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- Bunch of GRIDS -->
+
+
+</div>
+
+
+<!-- End Featured Cities -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- parteneres -->
+<div class="customer-logos">
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image1.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image2.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image3.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image4.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image5.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image6.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image7.png"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/solodev/infinite-carousel/master/images/image8.png"></div>
+</div>
+
+<!-- End Partners -->
+
+<footer>
+    <div class="content">
+        <div class="top">
+            <div class="logo-details">
+                <i class="fa fa-building"></i>
+                <span class="logo_name">Landlord</span>
+            </div>
+        </div>
+        <div class="link-boxes">
+            <ul class="box">
+                <li><a href="/">Home</a></li>
+                <li><a href="/app/addcontact">Contact us</a></li>
+                <li><a href="/app/detail_contact">Abouts us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-details">
+        <div class="bottom_text">
+
+                <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                </span>
+            <span class="copyright_text">Copyright © 2022-2023 <a href="#">Landlord.</a>All rights reserved</span>
+        </div>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- External Javascript -->
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+<script src="./javascript/app.js"></script>
+</body>
+</html>

@@ -67,6 +67,8 @@ class ApartmentUpdateView(APIView):
     template_name = '../templates/index.html'
 
     def post(self, request):
+        obj_id = request.data.get('id')
+        apartment = Apartment.objects.filter(id=obj_id)
         data = request.data
         data = data.dict()
         apartment_images = []
@@ -82,10 +84,10 @@ class ApartmentUpdateView(APIView):
         data.update({"apartment_images": apartment_images})
         # pdb.set_trace()
         # data = {k: v[0] for k, v in dict(data).items()}
-        serializer = ApartmentSerializer(data=data)
+        serializer = ApartmentSerializer(apartment, data=data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=200)
+            return HttpResponseRedirect(redirect_to='/app/show_apartments')
         return Response(serializer.errors, status=422)
 
 

@@ -8,12 +8,9 @@ from rest_framework.response import Response
 
 class ContactUsView(APIView):
     def post(self, request):
-        request_data = request.data
         contact = ContactUs.objects.first()
         request_data = request.data
-
         request_data = request_data.dict()
-
         if contact:
             serializer = ContactUsSerializer(contact, data=request_data)
         else:
@@ -21,7 +18,7 @@ class ContactUsView(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            return HttpResponseRedirect(redirect_to='')
+            return HttpResponseRedirect(redirect_to='/')
         return Response(serializer.errors, status=422)
 
 

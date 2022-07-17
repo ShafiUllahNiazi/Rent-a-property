@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Apartment(models.Model):
+    # type = models.CharField(max_length=200, null=True, blank=True)
     title = models.CharField(max_length=200, null=True, blank=True)
     apartment_type = models.CharField(max_length=200, null=True, blank=True)
     property_status = models.CharField(max_length=200, null=True, blank=True)

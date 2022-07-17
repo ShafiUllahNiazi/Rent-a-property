@@ -33,11 +33,12 @@ class ApartmentSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validate_data):
         validated_data = self.initial_data
+        instance_id = validated_data.get('id')
         apartment_images = validated_data.pop('apartment_images')
         for i in range(10):
             validated_data.pop('image' + str(i + 1))
-        Apartment.objects.filter(id=instance.id).update(**validated_data)
-        apartment = Apartment.objects.get(id=instance.id)
+        Apartment.objects.filter(id=instance_id).update(**validated_data)
+        apartment = Apartment.objects.get(id=instance_id)
 
         for item in apartment_images:
             if "id" in item:

@@ -30,8 +30,8 @@
         <div class="navbar-left-section">
             <a class="logo" style="text-decoration: none;" href="/"><b style="color: #22577e;">e</b>House</a>
             <span>
-                <a href="/app/property/Yes">Buy</a>
-                <a href="/app/property/No">Rent</a>
+                <a href="/app/property_buy">Buy</a>
+                <a href="/app/property_rent">Rent</a>
                 <a href="/app/show_apartments">Appartments</a>
                 <a href="/app/addcontact">Contact</a>
             </span>
@@ -88,17 +88,14 @@
 </div>
 <!-- End Navbar -->
 
-
 <!-- Sidebar -->
 <!-- Sidebar will showed us when screen size will be 880 -->
 <div class="sidebar">
-        <a href="disable" disabled></a>
-        <a href="/app/addproperty">Add Property</a>
-        <a href="/app/property/Yes">Buy</a>
-        <a href="/app/property/No">Rent</a>
-                        <a href="/app/addcontact">Contact</a>
-
-    </div>
+    <a href="disable" disabled></a>
+    <a href="/app/addproperty">Add Property</a>
+    <a href="/app/property_buy">Buy</a>
+    <a href="/app/property_rent">Rent</a>
+    <a href="/app/addcontact">Contact</a>
 </div>
 <div class="side-lay">
     <a class="times" href="#">
@@ -108,60 +105,14 @@
 <!-- Form is here -->
 <!-- Form is here -->
 <!-- Search Property By Filter Here -->
-<div class="test">
-    <div class="banner-margin">
 
-        <!-- Property Type here second section -->
-        <div class="property-type">
-
-            <div class="text">
-                <h2>Types of Property We Have</h2>
-                <div class="types">
-                    <div class="types1">
-                        <a href="#" class="types1-1">
-                            <span class="iconify" data-icon="pepicons:house" data-width="40" data-height="40"></span>
-                            <h3>House</h3>
-                        </a>
-                        <a href="#" class="types1-1">
-                            <span class="iconify" data-icon="bi:building" data-width="40" data-height="40"></span>
-                            <h3>Building</h3>
-                        </a>
-                        <a href="#" class="types1-1">
-                            <span class="iconify" data-icon="fontisto:holiday-village" data-width="40"
-                                  data-height="40"></span>
-                            <h3>Villas</h3>
-                        </a>
-                    </div>
-                    <div href="#" class="types1">
-                        <a href="#" class="types1-1">
-                            <span class="iconify" data-icon="ep:office-building" data-width="40"
-                                  data-height="40"></span>
-                            <h3>Apartments</h3>
-                        </a>
-                        <a href="#" class="types1-1">
-                            <span class="iconify" data-icon="carbon:industry" data-width="40" data-height="40"></span>
-                            <h3>Industrial</h3>
-                        </a>
-                        <a href="#" class="types1-1">
-                        <span class="iconify" data-icon="emojione-monotone:house-with-garden" data-width="40"
-                              data-height="40"></span>
-                            <h3>Banglows</h3>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Start Hero-Banner -->
 
 
 <!-- Carousel -->
-<br>
-<br>
+
 <br>
 <br>
 
@@ -169,25 +120,21 @@
 <div class="grid">
     <div class="grid-margin">
         <div class="cont-1">
-            <h2>Latest Property For Sale</h2>
-            <p>
-                Some of the big societies are selling their products are for sale.Hurry to catch one that is suit for
-                you. These are
-                cheap and in cool societies.
-            </p>
+            <h2>Latest Properties For Buy and Rent</h2>
+
         </div>
         <br><br>
         <div class="grid-main">
-{#            {% for item,img in data|zip(photos) %}#}
-                {% for item,img in data %}
+            {#            {% for item,img in data|zip(photos) %}#}
+            {% for item,img in data %}
 
                 <div class="card1">
-                    <div  style="background-position:center; background-size:cover;background-image: url('../static/{{ img }}');width: 100%;height: 25vh">
+                    <div style="background-position:center; background-size:cover;background-image: url('../static/{{ img }}');width: 100%;height: 25vh">
                     </div>
                     <div class="property-info">
                         <div class="price">
                             <h2>{{ item.area }} {{ item.area_unit }} Apartments</h2>
-                            <a href="#">For Sale</a>
+                            <a href="">For Sale</a>
                         </div>
                         <div class="adress">
                             <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
@@ -249,57 +196,7 @@
                                     </g>
                                 </svg>
                                 Call Now </a>
-                            <a href="#inquire">
 
-                                <svg height="18px" width="18px" fill="#0077B5" version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     x="0px"
-                                     y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-                                     xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M0,72.205v367.59h512V72.205H0z M469.425,111.59L256,289.444L42.576,111.59H469.425z M472.615,400.41H39.385V160.197
-                        			L256,340.71l216.615-180.513V400.41z"/>
-                                </g>
-                            </g>
-                                    <g>
-                                <g>
-                                    <rect x="367.59" y="321.641" width="65.641" height="39.385"/>
-                                </g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                                    <g>
-                            </g>
-                        </svg>
-
-                                <span style="margin-left: 5px;">I'm Interested</span></a>
 
                         </div>
                         <div class="buttons">
@@ -361,10 +258,6 @@
                     </div>
                 </div>
 
-
-
-
-
             {% endfor %}
         </div>
     </div>
@@ -374,64 +267,6 @@
 
 
 </div>
-
-
-<!-- Featured Cities -->
-<div class="grid">
-    <div class="grid-margin">
-        <div class="cont-1">
-            <h2>Features cities across Pakistan</h2>
-            <p>
-                Pakistan’s No. 1 Site
-            </p>
-        </div>
-        <br><br>
-        <div class="grid-main">
-            <a href="/app/city_apartment/lahore" id="bg-image" class="lahore lazy">
-
-            </a>
-            <a href="/app/city_apartment/nankana" id="bg-image" class="nankana  lazy">
-
-            </a>
-            <a href="/app/city_apartment/karachi" id="bg-image" class="karachi  lazy">
-
-            </a>
-            <a href="/app/city_apartment/islamabad" id="bg-image" class="Islamabad  lazy">
-
-            </a>
-            <a href="/app/city_apartment/gwader" id="bg-image" class="gwader  lazy">
-
-            </a>
-            <a href="/app/city_apartment/bahawalpur" id="bg-image" class="bahawalpur" lazy>
-
-            </a>
-            <a href="/app/city_apartment/multan" id="bg-image" class="multan  lazy">
-
-            </a>
-            <a href="/app/city_apartment/murree" id="bg-image" class="murree  lazy">
-
-            </a>
-            <a href="/app/city_apartment/peshawar" id="bg-image" class="peshawar  lazy">
-
-            </a>
-            <a href="/app/city_apartment/quetta" id="bg-image" class="quetta  lazy">
-
-            </a>
-            <a href="/app/city_apartment/kashmir" id="bg-image" class="kashmir">
-
-            </a>
-            <a href="/app/city_apartment/sialkot" id="bg-image" class="sialkot  lazy">
-
-            </a>
-        </div>
-    </div>
-
-
-    <!-- Bunch of GRIDS -->
-
-
-</div>
-<!-- End Featured Cities -->
 
 
 <!-- parteneres -->
@@ -463,50 +298,14 @@
     <div class="content">
         <div class="top">
             <div class="logo-details">
-                <i class="fa fa-building"></i>
                 <span class="logo_name">Landlord</span>
-            </div>
-            <div class="media-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="link-boxes">
             <ul class="box">
-                <li class="link_name">Company</li>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/app/addcontact">Contact us</a></li>
                 <li><a href="/app/detail_contact">Abouts us</a></li>
-                <li><a href="#">Get started</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Services</li>
-                <li><a href="#">Sell</a></li>
-                <li><a href="#">Buy</a></li>
-                <li><a href="#">Rent</a></li>
-                <li><a href="#">Installments</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Search</li>
-                <li><a href="#">New Offices</a></li>
-                <li><a href="#">Apartments</a></li>
-                <li><a href="#">Home for family</a></li>
-                <li><a href="#">Banglow</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Our Projects</li>
-                <li><a href="#">Pakistan Mall</a></li>
-                <li><a href="#">United Apartments</a></li>
-                <li><a href="#">Housing Scheme</a></li>
-                <li><a href="#">NationalLand</a></li>
-            </ul>
-            <ul class="box input-box">
-                <li class="link_name">Subscribe</li>
-                <li><input type="text" placeholder="Enter your email"></li>
-                <li><input type="button" value="Subscribe"></li>
             </ul>
         </div>
     </div>
