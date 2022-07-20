@@ -153,14 +153,16 @@ class edit_apartment(APIView):
 
     def get(self, request, pk):
         try:
+            pin = self.request.GET.get('key', None)
             apartment_info = Apartment.objects.get(id=pk)
         except Exception as e:
             return Response({"detail": str(e)}, status=422)
+        if pin == '12345':
+            serializer = ApartmentSerializer(apartment_info)
+            # return HttpResponseRedirect(redirect_to='/app/show_apartments')
 
-        serializer = ApartmentSerializer(apartment_info)
-        # return HttpResponseRedirect(redirect_to='/app/show_apartments')
-
-        return Response({'data': serializer.data}, status=200)
+            return Response({'data': serializer.data}, status=200)
+        return HttpResponseRedirect(redirect_to='/app/show_apartments')
 
 
 class del_apartment(APIView):
@@ -170,13 +172,15 @@ class del_apartment(APIView):
     def get(self, request, pk):
         if pk is not None:
             try:
-                apartment_info = Apartment.objects.get(id=pk)
-                apartment_info.delete()
+                pin = self.request.GET.get('key', None)
+                if pin == '12345':
+                    apartment_info = Apartment.objects.get(id=pk)
+                    apartment_info.delete()
+                return HttpResponseRedirect(redirect_to='/app/show_apartments')
             except Exception as e:
                 return Response({"detail": str(e)}, status=422)
         else:
             return Response({"detail": "Apartment ID not found in request"}, status=422)
-        return HttpResponseRedirect(redirect_to='/app/show_apartments')
         # return Response({"detail": "Deleted Apartment Successfully!"}, status=200)
 
 
