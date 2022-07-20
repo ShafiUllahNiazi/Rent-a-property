@@ -121,8 +121,11 @@
             {% endfor %}
             <td>
 
-                <a href="edit_apartment/{{item.id }}">edit</a> <br/>
-                <a href="del_apartment/{{item.id }}">Delete</a>
+{#                <a onclick="myEdit()">Edit</a> <br/>#}
+                <button style="background-color: #0077b5; margin: 1px 2px; padding: 2px 4px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="edit" onclick="myEdit({{ item.id }})">Edit</button>
+
+                <button style="background-color: red; margin: 1px 2px; padding: 2px 4px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="delete" onclick="myDelete({{ item.id }})">Delete</button>
+{#                <a href="del_apartment/{{item.id }}" onclick="myDelete()">Delete</a>#}
             </td>
         </tr>
     {% endfor %}
@@ -167,5 +170,25 @@
 <!-- External Javascript -->
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <script src="./javascript/app.js"></script>
+<script>
+function myEdit(x) {
+  let v1 = prompt("Enter a secret key", "")
+    if (v1 != null){
+        window.location.href = "/app/edit_apartment/"+ x + "?key="+v1;
+    }
+}
+
+</script>
+<script>
+function myDelete(x) {
+  let v2 = prompt("Enter a secret key", "")
+    if (v2 != null){
+        window.location.href = "/app/del_apartment/"+ x + "?key="+v2;
+    }
+}
+
+</script>
+
+
 </body>
 </html>
