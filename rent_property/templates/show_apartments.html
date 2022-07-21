@@ -52,7 +52,6 @@
     </style>
 </head>
 <body>
-<!-- Start Navbar -->
 <div class="navbar">
     <div class="navbar-margin">
         <div class="navbar-left-section">
@@ -79,13 +78,15 @@
     <a href="disable" disabled></a>
     <a href="/app/property_buy">Buy</a>
     <a href="/app/property_rent">Rent</a>
+    <a href="/app/show_apartments">Appartments</a>
     <a href="/app/addcontact">Contact</a>
 </div>
 <div class="side-lay">
-    <a class="times" href="#">
+    <a class="times" href="">
         <i class="fa fa-times"></i>
     </a>
 </div>
+<br><br>
 <div style="margin: 20px 20px 100px;">
     <table id="customers">
     <tr>
@@ -122,9 +123,9 @@
             <td>
 
 {#                <a onclick="myEdit()">Edit</a> <br/>#}
-                <button style="background-color: #0077b5; margin: 1px 2px; padding: 2px 4px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="edit" onclick="myEdit({{ item.id }})">Edit</button>
+                <button style="border:none; background-color: #0077b5; margin: 1px 2px; padding: 4px 6px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="edit" onclick="myEdit({{ item.id }})">Edit</button>
 
-                <button style="background-color: red; margin: 1px 2px; padding: 2px 4px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="delete" onclick="myDelete({{ item.id }})">Delete</button>
+                <button style="border:none; background-color: red; margin: 1px 2px; padding: 4px 6px; color: white; cursor: pointer; text-decoration: none;" type="submit" value="delete" onclick="myDelete({{ item.id }})">Delete</button>
 {#                <a href="del_apartment/{{item.id }}" onclick="myDelete()">Delete</a>#}
             </td>
         </tr>
@@ -186,6 +187,15 @@ function myDelete(x) {
         window.location.href = "/app/del_apartment/"+ x + "?key="+v2;
     }
 }
+
+</script>
+<script>
+
+function run() {
+    document.getElementById("customers").style.display = "none";
+  document.querySelector('.sidebar').classList.add('showSidebar');
+  document.querySelector('.side-lay').classList.add('showSidebar');
+};
 
 </script>
 
