@@ -1,0 +1,30 @@
+/venv
+/newvenv
+.idea
+.idea/
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+### Django ###
+*.log
+*.pot
+*.pyc
+
+!*/migrations/__init__.py
+*/migrations/*
+
+__pycache__/
+*/*/*/*/__pycache__/
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
